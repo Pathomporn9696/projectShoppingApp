@@ -29,7 +29,9 @@ class _AuthenState extends State<Authen> {
     screen = MediaQuery.of(context).size.width;
     print('screen = $screen');
     return Scaffold(
+      // ปุ่ม Register
       floatingActionButton: buildRegister(),
+      // ปุ่ม Register
       body: Container(
         decoration: BoxDecoration(
             gradient: RadialGradient(
@@ -41,6 +43,7 @@ class _AuthenState extends State<Authen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                // ส่วนของหน้า login ทั้งหมด
                 buildLogo(),
                 MyStyle().titleH1('ShoppingOnline'),
                 buildEmail(),
@@ -50,6 +53,7 @@ class _AuthenState extends State<Authen> {
                 buildSignInFacebook(),
                 buildSignInTwitter(),
                 buildSignInLine(),
+                // ส่วนของหน้า login ทั้งหมด
               ],
             ),
           ),
@@ -81,18 +85,17 @@ class _AuthenState extends State<Authen> {
         context, '/myHome', (route) => false);
   }
 
+  // ปุ่ม login with Line
   Container buildSignInLine() => Container(
-      margin: EdgeInsets.only(top: 8),
-      width: screen * 0.75,
-      child: RaisedButton(
-        color: Color.fromRGBO(0, 185, 0, 1),
-        textColor: Colors.white,
-        padding: const EdgeInsets.all(1),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
+        margin: EdgeInsets.only(top: 8),
+        width: screen * 0.75,
+        child: RaisedButton(
+          color: Color.fromRGBO(0, 185, 0, 1),
+          textColor: Colors.white,
+          padding: const EdgeInsets.all(1),
+          child: Column(
+            children: [
+              Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                 Image.network(
                   'https://firebasestorage.googleapis.com/v0/b/messagingapitutorial.appspot.com/o/line_logo.png?alt=media&token=80b41ee6-9d77-45da-9744-2033e15f52b2',
                   width: 40,
@@ -109,18 +112,19 @@ class _AuthenState extends State<Authen> {
                           style: TextStyle(
                               fontSize: 13, fontWeight: FontWeight.bold))),
                 )
-              ]
-            ),
-          ],
+              ]),
+            ],
+          ),
+          onPressed: () {
+            startLineLogin();
+          },
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         ),
-        onPressed:(){
-          startLineLogin();
-        },
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10)
-        ),
-      ));
+      );
+  // ปุ่ม login with Line
 
+  // ปุ่ม login with Twitter
   Container buildSignInTwitter() => Container(
         margin: EdgeInsets.only(top: 8),
         width: screen * 0.75,
@@ -131,8 +135,10 @@ class _AuthenState extends State<Authen> {
             borderRadius: BorderRadius.circular(30),
           ),
         ),
-      );    
+      );
+  // ปุ่ม login with Twitter
 
+  // ปุ่ม login with facebook
   Container buildSignInFacebook() => Container(
         margin: EdgeInsets.only(top: 8),
         width: screen * 0.75,
@@ -146,6 +152,8 @@ class _AuthenState extends State<Authen> {
           ),
         ),
       );
+
+  // ปุ่ม login with facebook
 
   Future _handleLogin() async {
     // FacebookLoginResult _result = await _facebookLogin.logIn(['email']);
@@ -177,6 +185,7 @@ class _AuthenState extends State<Authen> {
   //           context, '/myHome', (route) => false));
   // }
 
+  // ปุ่มlogin google
   Container buildSignInGoogle() => Container(
         margin: EdgeInsets.only(top: 8),
         width: screen * 0.75,
@@ -213,7 +222,9 @@ class _AuthenState extends State<Authen> {
       });
     });
   }
+  // ปุ่มlogin google
 
+  // ปุ่ม register
   TextButton buildRegister() => TextButton(
         onPressed: () => Navigator.pushNamed(context, '/register'),
         child: Text(
@@ -221,7 +232,9 @@ class _AuthenState extends State<Authen> {
           style: TextStyle(color: Colors.white),
         ),
       );
+  // ปุ่ม register
 
+  // ปุ่ม login
   Container buildLogin() {
     return Container(
       margin: EdgeInsets.only(top: 16),
@@ -230,7 +243,7 @@ class _AuthenState extends State<Authen> {
         onPressed: () {
           if ((email?.isEmpty ?? true) || (password?.isEmpty ?? true)) {
             normalDialog(context, 'มีช่องว่าง?',
-                'มีข้อมูลที่ไม่ได้กรอก ? กรุณากรอกข้อมูลในช่องว่าง');
+                'มีข้อมูลที่ไม่ได้กรอก ? กรุณากรอกข้อมูลในช่องว่าง'); //แจ้งเตือนเมื่อมีช่องว่าง
           } else {
             checkAuthen();
           }
@@ -244,7 +257,9 @@ class _AuthenState extends State<Authen> {
       ),
     );
   }
+  // ปุ่ม login
 
+  //ช่องกรอก Email
   Container buildEmail() {
     return Container(
       decoration: BoxDecoration(
@@ -276,7 +291,9 @@ class _AuthenState extends State<Authen> {
       ),
     );
   }
+  //ช่องกรอก Email
 
+  //ช่องกรอก Password
   Container buildPassword() {
     return Container(
       decoration: BoxDecoration(
@@ -322,6 +339,7 @@ class _AuthenState extends State<Authen> {
       ),
     );
   }
+  //ช่องกรอก Password
 
   Container buildLogo() {
     return Container(

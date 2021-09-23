@@ -16,6 +16,7 @@ class _RegisterState extends State<Register> {
   bool statusRedEye = true;
   String? name, email, password, phone;
 
+  //ส่วนช่องกรอกชื่อ
   Container buildName() {
     return Container(
       decoration: BoxDecoration(
@@ -46,7 +47,9 @@ class _RegisterState extends State<Register> {
       ),
     );
   }
+  //ส่วนช่องกรอกชื่อ
 
+  //ส่วนช่องกรอกอีเมล
   Container buildEmail() {
     return Container(
       decoration: BoxDecoration(
@@ -78,7 +81,9 @@ class _RegisterState extends State<Register> {
       ),
     );
   }
+  //ส่วนช่องกรอกอีเมล
 
+  //ส่วนช่องกรอกรหัสผ่าน
   Container buildPassword() {
     return Container(
       decoration: BoxDecoration(
@@ -124,6 +129,7 @@ class _RegisterState extends State<Register> {
       ),
     );
   }
+  //ส่วนช่องกรอกรหัสผ่าน
 
   Container buildPhone() {
     return Container(
@@ -157,6 +163,7 @@ class _RegisterState extends State<Register> {
     );
   }
 
+  //ส่วนของหน้าจอทั้งหมด
   @override
   Widget build(BuildContext context) {
     screen = MediaQuery.of(context).size.width;
@@ -180,7 +187,10 @@ class _RegisterState extends State<Register> {
       ),
     );
   }
+  //ส่วนของหน้าจอทั้งหมด
 
+
+  //ส่วนของปุ่มกดเพื่อสมัครสมาชิก
   FloatingActionButton buildFloatingActionButton() {
     return FloatingActionButton(
       backgroundColor: MyStyle().darkColor,
@@ -200,7 +210,9 @@ class _RegisterState extends State<Register> {
       child: Icon(Icons.cloud_upload),
     );
   }
+  //ส่วนของปุ่มกดเพื่อสมัครสมาชิก
 
+  //ส่วนของการส่งข้อมูลที่กรอกในช่องเพื่อเก็บในฐานข้อมูล firebase
   Future<Null> registerFirebase() async {
     await Firebase.initializeApp().then((value) async {
       print('######### Firebase Initialize Success#########');
@@ -216,4 +228,5 @@ class _RegisterState extends State<Register> {
       });
     });
   }
+  //ส่วนของการส่งข้อมูลที่กรอกในช่องเพื่อเก็บในฐานข้อมูล firebase
 }
