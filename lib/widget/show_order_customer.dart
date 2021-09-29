@@ -52,7 +52,7 @@ class _ShowOderCustomerState extends State<ShowOderCustomer> {
       });
     });
   }
-
+  // หน้าในส่วนของร้านค้าเช็ค order เข้า
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,6 +121,7 @@ class _ShowOderCustomerState extends State<ShowOderCustomer> {
       ),
     );
   }
+  // หน้าในส่วนของร้านค้าเช็ค order เข้า
 
   Widget buildStatus(String? string) {
     Color? color;

@@ -127,7 +127,7 @@ class _AllProductState extends State<AllProduct> {
       });
     });
   }
-
+  //ส่วนของการ add สินค้าลงตะกร้า
   Future<Null> addProductToCart(ProductMenModel model) async {
     int amount = 1;
     showDialog(
@@ -197,7 +197,9 @@ class _AllProductState extends State<AllProduct> {
       ),
     );
   }
+  //ส่วนของการ add สินค้าลงตะกร้า
 
+  //ส่วนของ ui โชว์สินค้าต่่างๆ
   Container buildTemplate(BuildContext context, ProductMenModel productMenModel,
       String type, int index) {
     return Container(
@@ -274,7 +276,9 @@ class _AllProductState extends State<AllProduct> {
       ),
     );
   }
+  //ส่วนของ ui โชว์สินค้าต่่างๆ
 
+  //ส่วน body แสดงสินค้าต่างๆ
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -294,6 +298,7 @@ class _AllProductState extends State<AllProduct> {
       ),
     );
   }
+  //ส่วน body แสดงสินค้าต่างๆ
 
   Padding buildTitleProduct(String title, String myRoute) {
     return Padding(
@@ -1151,6 +1156,7 @@ Container buildHeader(Size size, BuildContext context) {
             ],
           ),
         ),
+        // ส่วนของ Search bar
         Positioned(
           bottom: 0,
           left: 0,
@@ -1207,7 +1213,8 @@ Container buildHeader(Size size, BuildContext context) {
               ),
             ),
           ),
-        )
+        ),
+        // ส่วนของ Search bar
       ],
     ),
   );

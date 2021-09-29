@@ -101,7 +101,7 @@ class _SearchAllProductState extends State<SearchAllProduct> {
       });
     });
   }
-
+  //โค้ดหน้า ui search
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -160,6 +160,7 @@ class _SearchAllProductState extends State<SearchAllProduct> {
     );
   }
 }
+//โค้ดหน้า search
 
 class Debouncer {
   final int? millisecond;

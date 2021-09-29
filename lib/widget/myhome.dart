@@ -61,6 +61,7 @@ class _MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //ส่วนของ appbar ด้านบน ประกอบไปด้วย icon ต่างๆ
       appBar: AppBar(
         backgroundColor: MyStyle().primaryColor,
         actions: [
@@ -74,11 +75,13 @@ class _MyHomeState extends State<MyHome> {
           ),
         ],
       ),
+      //ส่วนของ appbar ด้านบน ประกอบไปด้วย icon ต่างๆ
+
       drawer: buildDrawer(),
       body: currenWidget,
     );
   }
-  
+  //ส่วนของ drawer
   Drawer buildDrawer() {
     return Drawer(
       child: Stack(
@@ -98,6 +101,7 @@ class _MyHomeState extends State<MyHome> {
       ),
     );
   }
+  //ส่วนของ drawer
 
   ListTile buildListTileAllProduct() {
     return ListTile(
