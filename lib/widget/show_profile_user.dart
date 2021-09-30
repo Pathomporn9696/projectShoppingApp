@@ -41,38 +41,46 @@ class _ShowProfileUserState extends State<ShowProfileUser> {
     });
   }
 
+  //ส่วนแสดงข้อมูล หน้า profile
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButton: profileModel == null
-            ? buildFloatingActionButton(context)
-            : SizedBox(),
-        body: statusLoad
-            ? MyStyle().showProgress()
-            : profileModel == null
-                ? Center(child: MyStyle().titleH1('Please Updata Your Profie'))
-                : Center(
-                    child: Column(
-                      children: [
-                        MyStyle().titleH1(profileModel!.name!),
-                        MyStyle().titleH2(profileModel!.address!),
-                        MyStyle().titleH2(profileModel!.phone!),
-                        buildMap(),
-                      ],
-                    ),
-                  ));
+      floatingActionButton: profileModel == null
+          ? buildFloatingActionButton(context)
+          : SizedBox(),
+      body: statusLoad
+          ? MyStyle().showProgress()
+          : profileModel == null
+              ? Center(child: MyStyle().titleH1('Please Updata Your Profie'))
+              : Center(
+                  child: Column(
+                    children: [
+                      MyStyle().titleH1(profileModel!.name!),
+                      MyStyle().titleH2(profileModel!.address!),
+                      MyStyle().titleH2(profileModel!.phone!),
+                      buildMap(),
+                    ],
+                  ),
+                ),
+    );
   }
+  //ส่วนแสดงข้อมูล หน้า profile
 
+  //ปักหมุดที้อยู่บนแผนที่
   Set<Marker> setMarker() {
     return [
       Marker(
-        markerId: MarkerId('id'),
-        position: LatLng(profileModel!.lat!, profileModel!.lng!),
-        infoWindow: InfoWindow(title: 'You are Here ?', snippet: 'lat = ${profileModel!.lat} lng = ${profileModel!.lng}')
-      ),
+          markerId: MarkerId('id'),
+          position: LatLng(profileModel!.lat!, profileModel!.lng!),
+          infoWindow: InfoWindow(
+              title: 'You are Here ?',
+              snippet:
+                  'lat = ${profileModel!.lat} lng = ${profileModel!.lng}')),
     ].toSet();
   }
+  //ปักหมุดที้อยู่บนแผนที่
 
+  //แสดง google map
   Expanded buildMap() => Expanded(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -94,3 +102,4 @@ class _ShowProfileUserState extends State<ShowProfileUser> {
     );
   }
 }
+//แสดง google map

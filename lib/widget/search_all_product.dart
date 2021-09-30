@@ -34,6 +34,7 @@ class _SearchAllProductState extends State<SearchAllProduct> {
     await Timer(duration, () => readAllProduct());
   }
 
+  // โค้ด อ่าน ข้อมูล สินค้าใน database
   Future<Null> readAllProduct() async {
     await Firebase.initializeApp().then((value) async {
       await FirebaseFirestore.instance
@@ -101,6 +102,8 @@ class _SearchAllProductState extends State<SearchAllProduct> {
       });
     });
   }
+  // โค้ด อ่าน ข้อมูล สินค้าใน database
+  
   //โค้ดหน้า ui search
   @override
   Widget build(BuildContext context) {
